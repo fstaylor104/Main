@@ -30,7 +30,7 @@ function getTextFeed(){
             //variable to represent how far has currently been travelled
             var travelled = 0;
             //loop through all points, calculating spped and distance remaining
-            for(var i = 1; i <allPoints.length; i++){
+            for(var i = 1; i <allPoints.length-1; i++){
                 //timeout to update periodically rather than all at once
                 setTimeout(function(y){
                     
@@ -59,10 +59,11 @@ function getTextFeed(){
                    document.getElementById('log').innerHTML += "<span style='color:red; font-size:15px;'>"+
                             '<strong>Speed is low... pick up the pace!</strong></br>'+"</span>";
                }
-         
+               
+               document.getElementById('log').scrollTop = 9999999;
            
            //output every x seconds...
-                },i*4000, i);   
+                },i*15000, i);   
             }
                               
 });

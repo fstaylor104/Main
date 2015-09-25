@@ -100,9 +100,7 @@
                 }else if(y === 1){
                      document.getElementById('log').innerHTML += "<span style='color:green'>"+
                             'Getting started...</br>'+"</span>";
-                }else if(y === markersArray.length-1){
-                    document.getElementById('log').innerHTML +="<span style='color:purple'>"+
-                            'Congratulations!! You have finished the course!</br>'+"</span>";
+                }else if(y === markersArray.length-1){                
                              alert('You have finished the route! Well Done!');
                 }else if(circlesArray[y].contains(pointsArray[y])){
                    document.getElementById('log').innerHTML += "<span style='color:blue'>"+
@@ -112,8 +110,9 @@
                             'WARNING: You are off the expected path!</br>'+"</span>";
                     
                 }
+                document.getElementById('log').scrollTop = 9999999;
                               
-            }, x*4000, x); 
+            }, x*15000, x); 
         }
         
 }
