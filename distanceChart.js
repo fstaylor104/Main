@@ -16,17 +16,19 @@
                     parseFloat(markers[i].getAttribute("lng")));
                     allPoints[i] = point;
                 }
+                
                var total = 0;
                var graph = Array();
-               graph[0] = ['', total];
+               graph[0] = ['0.00', total];
                for(var i = 1; i<allPoints.length; i++){
-                       var distance = google.maps.geometry.spherical.computeDistanceBetween(
-                               allPoints[i], allPoints[i-1]
-                               ); 
+                    var time = i+':00';
+                    var distance = google.maps.geometry.spherical.computeDistanceBetween(
+                     allPoints[i], allPoints[i-1]
+                    ); 
                       
                       
                        total+=distance;
-                       graph[i] = ['', total]; 
+                       graph[i] = [time , total]; 
                
                }
                        
@@ -40,7 +42,7 @@
                
                var chart = new google.visualization.LineChart(document.getElementById('chart_div3'));
               dataTable.addColumn('string', 'id');
-              dataTable.addColumn('number', 'displacement');
+              dataTable.addColumn('number', 'Distance');
               
                
               var array = [];
@@ -50,7 +52,7 @@
                         dataTable.addRows(array);              
                         chart.draw(dataTable, options); 
                         array = [];
-                  }, i*5000, i);
+                  }, i*TIME, i);
               }
       });
 

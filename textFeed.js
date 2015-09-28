@@ -48,7 +48,7 @@ function getTextFeed(){
              
                 
                //output speed and distance remaining to text feed
-               document.getElementById('log').innerHTML += '<em>Speed: ' 
+               document.getElementById('log').innerHTML += TIME +' <em>Speed: ' 
                        +speed +' km/h   Distance Remaining: '+distanceRemaining+'m</em></br>';
                
                if(s===0){
@@ -59,11 +59,12 @@ function getTextFeed(){
                    document.getElementById('log').innerHTML += "<span style='color:red; font-size:15px;'>"+
                             '<strong>Speed is low... pick up the pace!</strong></br>'+"</span>";
                }
-               
+               //scrolltop specifies scrolling offset in pixels from the top of the region.
+                //Setting to a larhe number to ensure it will always be at the bottom of feed.
                document.getElementById('log').scrollTop = 9999999;
            
            //output every x seconds...
-                },i*15000, i);   
+                },i*TIME, i);   
             }
                               
 });

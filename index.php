@@ -12,8 +12,12 @@
       <script type="text/javascript" src="displacementChart.js"></script>
       <script type="text/javascript" src="distanceChart.js"></script>
       <script type="text/javascript" src="textFeed.js"></script>
+      <script type="text/javascript" src="constants.js"></script>
       <script type="text/javascript" src="https://www.google.com/jsapi"></script>
       <script type="text/javascript">       
+          
+          //variable to represent time between periodic updates...
+          var TIME = 6000;
           
        //adding a contains method to google maps circle to enable comparison of current position 
        //in relation to preset circles/geofences...   
@@ -100,8 +104,10 @@
                 }else if(y === 1){
                      document.getElementById('log').innerHTML += "<span style='color:green'>"+
                             'Getting started...</br>'+"</span>";
-                }else if(y === markersArray.length-1){                
+                }else if(y === markersArray.length-1){ 
+                            document.getElementById('log').innerHTML += '<strong>Route finished - Well Done!</strong>';
                              alert('You have finished the route! Well Done!');
+                             
                 }else if(circlesArray[y].contains(pointsArray[y])){
                    document.getElementById('log').innerHTML += "<span style='color:blue'>"+
                             'You are on the right track!</br>'+"</span>";
@@ -110,9 +116,11 @@
                             'WARNING: You are off the expected path!</br>'+"</span>";
                     
                 }
+                //scrolltop specifies scrolling offset in pixels from the top of the region.
+                //Setting to a larhe number to ensure it will always be at the bottom of feed.
                 document.getElementById('log').scrollTop = 9999999;
                               
-            }, x*15000, x); 
+            }, x*TIME, x); 
         }
         
 }

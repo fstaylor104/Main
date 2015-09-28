@@ -2,8 +2,6 @@
  //Method that creates and populates a data table, 
       // instantiates the pie chart, passes in the data and
       // draws it.
-      
-
  function drawAltitudeChart(){
 
          var graph = [];
@@ -18,11 +16,12 @@
               };
               
               for(var i = 0; i<markers.length; i++){
-                  graph[i] = ['', parseInt(markers[i].getAttribute("alt"))];
+                  var time = i+':00';
+                  graph[i] = [time , parseInt(markers[i].getAttribute("alt"))];
               }
               
-              var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
-               dataTable.addColumn('string', 'id');
+              var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+               dataTable.addColumn('string', 'time');
                dataTable.addColumn('number', 'Altitude');
              
                var array = [];
@@ -32,7 +31,7 @@
                         dataTable.addRows(array);              
                         chart.draw(dataTable, options); 
                         array = [];
-                  }, i*5000, i);
+                  }, i*TIME, i);
               }
 
       });
