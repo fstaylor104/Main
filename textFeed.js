@@ -48,7 +48,7 @@ function getTextFeed(){
              
                 
                //output speed and distance remaining to text feed
-               document.getElementById('log').innerHTML += TIME +' <em>Speed: ' 
+               document.getElementById('log').innerHTML += '<em>Speed: ' 
                        +speed +' km/h   Distance Remaining: '+distanceRemaining+'m</em></br>';
                
                if(s===0){

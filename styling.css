@@ -1,0 +1,39 @@
+
+#button{
+    height:50px;
+    width:200px; 
+    background:#99EBFF;
+    border-radius:8%; 
+    box-shadow: 10px 10px 5px #888888; 
+    margin-top: 60px;
+    margin-left:100px;
+    font-size:20px;
+    
+}
+
+button:hover{
+    color:#33CC33
+}
+
+#welcome{
+    position: absolute; 
+    top: 30%;left: 32.5%;
+    margin-top: -50px;
+    width: 500px; 
+    height: 200px;
+}
+
+#userList{
+    width:500px;
+    height: 100px;
+}
+
+buttonHolder{
+    width:500px;
+    height: 100px; 
+   
+}
+
+#uiContainer{
+    background: #C2FFFF
+}
